@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  # name of the service
+  name: big88-partner-service
+  # labels for the service
+  labels:
+    app: big88-partner
+spec:
+  type: LoadBalancer
+  ports:
+    # the port that this service should serve on
+    - port: 3000
+      # set the target of the port, in this case 81 -> 80
+      targetPort: 3000
+  # label keys and values that must match in order to receive traffic for this service
+  selector:
+    # select pods with the name "big88-partner"
+    app: big88-partner

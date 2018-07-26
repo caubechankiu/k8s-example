@@ -1,0 +1,21 @@
+apiVersion: apps/v1 
+kind: Deployment
+metadata:
+  name: big88-partner-deployment
+spec:
+  selector:
+    matchLabels:
+      app: big88-partner
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: big88-partner
+    spec:
+      containers:
+      - image: caubechankiu/big88-partner:latest
+        name: big88-partner
+        ports:
+        - containerPort: 3000
+          name: big88-partner
